@@ -1,12 +1,13 @@
-import React from "react";
+import React,{useState} from "react";
 import styles from "./taskApp.module.css";
 import AddTask from "./AddTask/AddTask";
 // import Task from "./Task/Task";
-
+import tasks from '../data/tasks.json'
 import { TaskHeader } from "./TaskHeader";
 import Tasks from "./Tasks/Tasks";
 
 const TaskApp = () => {
+  const [data,setData]=useState(tasks)
   // NOTE: do not delete `data-testid` key value pair
   return (
     <div data-testid="task-app" className={styles.taskApp} style={{
@@ -24,9 +25,9 @@ const TaskApp = () => {
       {/* Header */}
       <TaskHeader />
       {/* Add Task */}
-      <AddTask/>
+      <AddTask data={data} setData={setData}/>
       {/* Tasks */}
-      <Tasks/>
+      <Tasks data={data} setData={setData}/>
     </div>
   );
 };
