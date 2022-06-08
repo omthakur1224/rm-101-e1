@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from "react";
 import styles from "./taskHeader.module.css";
-const TaskHeader = () => {
+const TaskHeader = ({data,setData}) => {
   // sample values to be replaced
-  const [totalTask ,setTotalTask]=useState(0);
-  const [unCompletedTask,setUnCompletedTask]=useState(0);
+  const [totalTask ,setTotalTask]=useState(data.length);
+  const [unCompletedTask,setUnCompletedTask]=useState(data.length-totalTask);
   // let totalTask = 0;
   // let unCompletedTask = 0;
   // NOTE: do not delete `data-testid` key value pair
